@@ -6,12 +6,12 @@ $ pip install -r requirements.txt
 ```
 
 ### Checkpoint
-https://drive.google.com/open?id=1aypOQ2iA2uCbn_CDoMI5WrpSv6jh5szx
+https://drive.google.com/open?id=1jvVJpTHjBWgD191s3CMssDdx_Uvc_nlP
 
 ### Accuracy  
 ```
 $ python3 test.py
-Accuracy : 97.5%
+Accuracy : 97.39%
 ```  
 
 ### ADT of Model

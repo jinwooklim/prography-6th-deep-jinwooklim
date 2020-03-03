@@ -34,10 +34,9 @@ class vgg16_skip(Model):
 
         self.x_flat = layers.Flatten()
         self.skip_flat = layers.Flatten()
-        self.fc_skip = layers.Dense(512)
 
         self.fc1 = layers.Dense(4096)
-        self.fc2 = layers.Dense(1024)
+        self.fc2 = layers.Dense(4096)
         self.fc3 = layers.Dense(10, activation=tf.nn.softmax)
 
     def call(self, inputs):
@@ -67,9 +66,8 @@ class vgg16_skip(Model):
 
         x = self.x_flat(x)
         skip = self.skip_flat(skip)
-        skip = self.fc_skip(skip)
-        # 3. Skip-connection
-        x = x + skip
+        # 3. Skip-connection : Concatenate
+        x = tf.concat([x, skip], axis=1)
 
         x = self.fc1(x)
         x = self.fc2(x)
@@ -95,7 +93,7 @@ if __name__ == "__main__":
     model = vgg16_skip()
     x_train = mnist_preprocess(x_train)
 
-    # 4. Train MNIST
+    # 4. Train Model
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     model.fit(x_train, y_train, epochs=5)
     model.save_weights('./checkpoints/vgg_mnist', save_format='tf')
