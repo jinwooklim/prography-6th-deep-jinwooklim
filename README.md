@@ -1,4 +1,4 @@
-Implement for Prography
+Implement for Prography 6th
 =========================
 #### Requirements
 ```
@@ -6,6 +6,7 @@ $ pip install -r requirements.txt
 ```
 
 ### Checkpoint
+Download the zip file and extract it under the root folder. 
 https://drive.google.com/open?id=1jvVJpTHjBWgD191s3CMssDdx_Uvc_nlP
 
 ### Accuracy  
